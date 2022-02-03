@@ -1,0 +1,47 @@
+.login-container {
+    justify-items: center;
+    justify-content: center;
+    margin: 4vh 24vw;
+    label{
+        font-size: 14px;
+        display: flex;
+    }
+    .inLogin{
+
+    }
+    .email-npt{
+        width: 252px;
+        height: 32px;
+        margin: 0vh 0vw 2vh 0vw;
+    }
+    .pass-npt{
+        width: 252px;
+        height: 32px;
+        margin: 0vh 0vw 2vh 0vw;
+    }
+    .login-btn{
+        width: 252px;
+        height: 37px;
+        background-color: #A03037;
+        font-size: 18px;
+        margin: 2vh 0vw;
+    }
+    .strick{
+        margin: 2vh 10vw; 
+        display: flex;
+        justify-content: center; 
+    }
+    .buttom-btn{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 35px;
+        .fb-btn{
+            width: 126px;
+            height: 37px;
+        }
+        .google-btn{
+            width: 119px;
+            height: 37px;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+.mainPageContainer {
+    background: #c5bfbf 0% 0% no-repeat padding-box;
+    margin: 0px;
+    height: 843px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .midBackground {
+        border-radius: 21px;
+        width: 624px;
+        height: 391px;
+        margin: 25vh 0vw;
+        background-color: #f5f5f5;
+        .mainLogo {
+            width: 245px;
+            height: 245px;
+            border-radius: 200px;
+            margin: 7vh 25vw 0vh 0vw;
+        }
+        .logoname {
+            display: flex;
+            background-color: #f5f5f5;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0px;
+            color: #0a0102;
+            text-transform: uppercase;
+            margin: 2vh 4vw;
+        }
+        .loginSignin {
+            display: flex;
+            width: 389px;
+            height: 425px;
+            background-color: #ffffff;
+            border: #e4e4e4 1px;
+            margin: -55vh 20vw;
+            .directLogin {
+                width: 72px;
+                height: 33px;
+                font-size: 25px;
+                font-weight: bold;
+                margin: 1vh 4vw;
+            }
+            .directSignup {
+                width: 89px;
+                height: 33px;
+                font-size: 25px;
+                font-weight: bold;
+                margin: 1vh 0vw;
+            }
+        }
+    }
+}
