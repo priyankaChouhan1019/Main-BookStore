@@ -1,10 +1,18 @@
 import React from 'react'
 import '../login/Login.scss'
-import { Button } from '@material-ui/core';
+import { Button ,TextField } from '@material-ui/core';
 import {uLogin} from '../../services/UserService'
 //import { uLogin } from '../../services/userSevice';
 function Login() {
+  const email = /priyachouhan1019@gmail.com/;
+  const password = /Priya@1019/;
+
   const [update, setUpdate] = React.useState({ email: ' ', password: ' '})
+
+  const [emailText, setEmailText] = React.useState("")
+  const [passwordText, setPasswordText] = React.useState("");
+  const [emailError, setEmailError] = React.useState(false);
+  const [passwordError, setPasswordError] = React.useState(false);
 
   const changeEmail = (e) => {
       setUpdate({...update,email:e.target.value})
@@ -15,6 +23,23 @@ function Login() {
   }
 
   const submit = () =>{
+
+    if (email.test(update.email)) {
+      setEmailError(false);
+      setEmailText(" ");
+  } else {
+      console.log("Error")
+      setEmailError(true);
+      setEmailText("Enter an email")
+  }
+  if (password.test(update.password)) {
+      setPasswordError(false);
+      setPasswordText(" ")
+  } else {
+      setPasswordError(true);
+      setPasswordText("Enter a Password")
+  }
+
     uLogin(update).then((res)=>{
         console.log(res)
         
@@ -26,12 +51,14 @@ function Login() {
 
   return (
     <div className ="login-container">
-             <label for="email">Email </label>
-            <input className='email-npt' type='text'  helpertext='Email Id'onChange={changeEmail} ></input> <br></br>
+           
+            <TextField style={{ backgroundColor: 'white' }} className="email-npt" type='text' id="outlined-email" label="Email Id" variant="outlined"
+                onChange={changeEmail} error={emailError} helperText={emailText} />
 
-            <label for="password">Password </label>
-            <input className='pass-npt' type='password'  helpertext='password' onChange={changePassword} ></input>
-            <br></br>
+           
+             <TextField style={{ backgroundColor: 'white' }} className="pass-npt" type='text' id="outlined-email" label="Password" variant="outlined"
+                onChange={changeEmail} error={passwordError} helperText={passwordText} />
+
             <button className='login-btn' style={{ backgroundColor: '#A03037'}}  onClick={submit}> Login </button>
             <p className='strick'>OR</p>
 

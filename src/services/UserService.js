@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-export const userAxios = async(data)=>{
+export const signupService = async(data)=>{
     let response = await axios.post("https://bookstore.incubation.bridgelabz.com/bookstore_user/registration",data)
     return response;
 }

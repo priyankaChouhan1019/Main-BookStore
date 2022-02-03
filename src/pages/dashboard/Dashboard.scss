@@ -1,0 +1,14 @@
+$headbar :"#A03037";
+*{
+    margin: 0px;
+    padding: 0px;
+
+    .dash-container{
+        
+        .headbar{
+            background-color: $headbar;
+            width: 100%;
+            height: 40%;
+        }
+    }
+}
