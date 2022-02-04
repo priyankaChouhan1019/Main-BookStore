@@ -1,3 +1,8 @@
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    margin: 0vh 6vw;
 .card{
     margin: 15px;
     width: 200px;
@@ -76,4 +81,5 @@
         
         }
     }
+}
 }
