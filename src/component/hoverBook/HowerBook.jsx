@@ -3,8 +3,8 @@ import book from '../../assets/book.png'
 import '../hoverBook/HowerBook.scss'
 import { Button } from '@material-ui/core'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-
-function HowerBook() {
+import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
+function HowerBook(props) {
     return (
         <div className="hower-container">
             <div className='left-container'>
@@ -21,26 +21,41 @@ function HowerBook() {
             <div className='right-container'>
                 <div className="text-containt">
                     <div className="title">
-                        <span id='title1'>Don't make me think</span>
-                        <span id='title2'>gdfdfh</span>
+                        <span id='title1'>{props.item.item.bookName}</span>
+                        <span id='title2'>{props.item.item.author}</span>
                         <div className="rating">
                             <span id='number1'>4.5*</span>
                             <span id='number2'>(20)</span>
                         </div>
                         <div className="price-container">
                             <span id='rs'>Rs.</span>
-                            <span id='new-price'>500</span>
+                            <span id='new-price'>{props.item.item.price}</span>
                             <span id='old-price'>2000</span>
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr id="line"/>
                 <div className='second-div'>
                     <span id="book-detial">Book Detail</span>
-                    <p id="lorem">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quia architecto deserunt aliquid a quo non veniam,
-                                  repellendus numquam debitis commodi nulla. 
-                                  Laborum iusto fugiat consectetur voluptatum magni quos recusandae amet fugit, ad obcaecati!</p>
-                <hr/>
+                    <p id="lorem">{props.item.item.description}</p>
+               
+                </div>
+                <hr id="line"/>
+                <div className="third-div">
+                    <span id="feedback"> Customer Feedback</span>
+                </div>
+
+                <div className="rating-div">
+                    <span id='rating'>overall rating</span>
+                    <div className='star'>
+                        <StarBorderPurple500OutlinedIcon/>
+                        <StarBorderPurple500OutlinedIcon/>
+                        <StarBorderPurple500OutlinedIcon/>
+                        <StarBorderPurple500OutlinedIcon/>
+                        <StarBorderPurple500OutlinedIcon/>
+                    </div>
+                    <input className="review" type="text" placeholder='write your review'></input>
+                    <Button className='sumit-btn' style={{ backgroundColor: '#3371B5', color: 'white' }} variant="contained">submit</Button>
                 </div>
             </div>
         </div>

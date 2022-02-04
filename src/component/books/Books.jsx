@@ -1,11 +1,14 @@
 import React from 'react'
 import '../books/Books.scss'
 import book from '../../assets/book.png'
+import HowerBook from '../hoverBook/HowerBook'
 import { getBooks } from '../../services/UserService'
 
 function Books() {
 
     const [books, setBooks] = React.useState([])
+    const[select,setSelect] =React.useState(false);
+    const [viewBook, setViewBook] = React.useState({});
 
     const getBookDetails = () => {
         getBooks().then((res) => {
@@ -20,13 +23,20 @@ function Books() {
         getBookDetails();
     }, [])
 
+    const openImage = (item) => {
+        setViewBook({...viewBook,item})
+        setSelect(!select)
+    }
+
     return (
 
         <div className='grid-container'>
             {
+                select ? <HowerBook item={viewBook}/> :
                 books.map((item, index) => (
-                    <div className='card'>
-                        <div className="book-container">
+                    <div className="main-card">
+                    <div className='card' key={index} className='displayGrid' value={select} >
+                        <div className="book-container" onClick={()=>openImage(item)}>
                             <img className="image" src={book}></img>
                         </div>
                         <div className="text-containt">
@@ -44,6 +54,7 @@ function Books() {
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 ))
             }

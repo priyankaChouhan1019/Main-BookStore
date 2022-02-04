@@ -28,8 +28,8 @@ function Dashboard() {
 </div> 
       <div className='bookList'>
         <div>
-          {/* <Books /> */}
-          <HowerBook />
+          <Books />
+          {/* <HowerBook /> */}
 
         </div>
       </div>
