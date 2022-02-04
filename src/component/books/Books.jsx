@@ -22,7 +22,6 @@ function Books() {
 
     return (
 
-
         <div className='grid-container'>
             {
                 books.map((item, index) => (

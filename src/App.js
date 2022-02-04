@@ -5,7 +5,7 @@ import Signup from './component/signup/Signup';
 import Home from './pages/homePage/Home';
 import Dashboard from './pages/dashboard/Dashboard';
 import Books from './component/books/Books';
-
+import HowerBook from './component/hoverBook/HowerBook';
 function App() {
   return (
     <div className="App">
@@ -14,6 +14,7 @@ function App() {
      {/* <Home /> */}
      {/* <Books/> */}
      <Dashboard/>
+     {/* <HowerBook/> */}
     </div>
   );
 }

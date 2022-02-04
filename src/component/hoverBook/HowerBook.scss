@@ -1,0 +1,98 @@
+.hower-container{
+    background-color: lightsalmon;
+    display: flex;
+    height: 70%;
+    width: 85%;
+    //margin: 0vh 7vw 0vh 7vw ;
+    .left-container{
+        height: 80vh;
+        width: 40%;
+        background-color: white;
+        .image-container{
+            border: 1px solid #D1D1D1;
+            height: 60%;
+            width: 55%;
+            display: flex;
+            justify-content: center;  
+            margin: 0vh 12vw;       
+            #hower-img{
+                padding: 15%;
+            }
+        }
+        .btn-container{
+            display: flex;
+            width: 55%;
+            justify-content: space-between;
+            margin: 4vh 12vw; 
+          
+        }
+    }
+
+
+    .right-container{
+        height: 100%;
+        width: 65%;
+        background-color: lightsalmon;
+        .text-containt{
+            margin: 0vh 0vw 0vh 2vw ;
+            line-height: 2;
+            
+            
+            .title{
+                text-align: left; 
+                display: grid;
+                line-height: 2;
+            
+                #title1{
+                    font: normal normal normal 18px Roboto;
+                    letter-spacing: 0px;
+                    color: #0A0102;
+                   
+                }
+                #title2{
+                    font: normal normal normal 12px Roboto;
+                    letter-spacing: 0px;
+                    color: #878787;         
+                }
+                .rating{
+                    display: flex;
+                    text-align: center;
+                    #number1{
+                        background-color: #388E3C;
+                        color: white;
+                        letter-spacing: 0px;
+                        font-size: 12px;
+                        width: 30px;
+                    }
+                    #number2{     
+                        color:#878787;
+                        letter-spacing: 0px;
+                        font-size: 10px;
+                    }
+                }
+                .price-container{
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: center;
+                    width: 75px;
+                    height: auto;
+                    line-height: 3;
+                    #rs{
+                        font-weight: bold;
+                       font-size:14px;
+                    }
+                    #new-price{
+                        font-weight: bold;
+                        font-size:12px; 
+                    }
+                    #old-price{
+                        color: #878787;
+                        font-size:11px;
+                        text-decoration: line-through; 
+                    }
+                }
+            
+            }
+        }
+    }
+}
