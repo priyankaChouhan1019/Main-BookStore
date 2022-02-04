@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import '../homePage/Home.scss'
 import Signup from '../../component/signup/Signup';
 import Login from '../../component/login/Login';
-import book from '../../assets/book.png'
+import logo from '../../assets/logo.png'
 
 function Home() {
 
@@ -16,7 +16,7 @@ function Home() {
   return (
     <div className="mainPageContainer">
     <div className='midBackground'>
-        <img className="mainLogo" src={book} alt="this is logo"></img>
+        <img className="mainLogo" src={logo} alt="this is logo"></img>
         <p className='logoname'>online book shopping</p>
         <div className='loginSignin'>
             {/* <Login /> */}

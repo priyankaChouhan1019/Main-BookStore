@@ -3,13 +3,13 @@ import '../dashboard/Dashboard.scss'
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import book1 from '../../assets/book1.png'
+import bookLogo from '../../assets/bookLogo.png'
 function Dashboard() {
   return (
     <div className="dash-container">
         <div className="headbar">
             <div className="book-title">
-                <img src={book1} alt='book logo' />
+                <img src={bookLogo} alt='book logo' />
                 <p> Bookstore</p>
             </div>
 

@@ -4,6 +4,7 @@ import Login from './component/login/Login';
 import Signup from './component/signup/Signup';
 import Home from './pages/homePage/Home';
 import Dashboard from './pages/dashboard/Dashboard';
+import Books from './component/books/Books';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
      {/* <Login/> */}
      {/* <Signup /> */}
      {/* <Home /> */}
-     <Dashboard/>
+     <Books/>
+     {/* <Dashboard/> */}
     </div>
   );
 }
