@@ -1,35 +1,42 @@
 import React from 'react'
 import '../dashboard/Dashboard.scss'
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import bookLogo from '../../assets/bookLogo.png'
+// import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+// import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+// import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+// import bookLogo from '../../assets/bookLogo.png'
+import { getBooks} from '../../services/UserService'
+import Books from '../../component/books/Books';
+import HeadBar from '../../component/headbar/HeadBar';
 function Dashboard() {
+  const [bookArray , setBookArray] =React.useState([])
+ 
+
+  const getdisplayBooks=()=>{
+    getBooks().then((res)=>{
+      console.log(res)
+      setBookArray(res.data.result)
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
+
+  React.useEffect(()=>{
+    getdisplayBooks();
+  },[])
+
   return (
     <div className="dash-container">
-        <div className="headbar">
-            <div className="book-title">
-                <img src={bookLogo} alt='book logo' />
-                <p> Bookstore</p>
+      <HeadBar/>
+       
+        <div className='bookList'>
+       
+        {
+          bookArray.map((item,index)=>(
+            <div>
+               <Books/>
             </div>
-
-            <div className="search-bar">
-            <input  type='search' className='search' placeholder='Search...'></input>
-            
-            </div>
-
-            <div className="right-icons">
-            <div className="name"> 
-            <PersonOutlineOutlinedIcon style={{ color: 'white' }}/>
-            <p id="profile-name"> Priyanka </p>
-            </div>
-
-            <div className="cart"> 
-            <ShoppingCartOutlinedIcon  style={{ color: 'white' }}/>
-            <p id="cart-name"> cart</p>
-            </div>
-            </div>
-
+          ))
+        }
         </div>
       
     </div>
