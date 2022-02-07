@@ -6,10 +6,12 @@ import {signupService} from '../../services/UserService'
 
 function Signup() {
 
-    const fullName = / priya/;
-    const email = / fsgs/;
-    const password = / fss /;
-    const number = /  fsgsg /;
+    const fullName = /Priya Chouhan/;
+    const email = /priyachouhan1019@gmail.com/;
+    const password = /Priya@1019/;
+    const number = /6268771855/;
+
+    const [update, setUpdate] = React.useState({ fullName: ' ', email: ' ', password: ' ', phone: ' ' })
 
    
     const [nameText, setNameText] = React.useState("");
@@ -22,10 +24,11 @@ function Signup() {
     const [numberError, setNumberError] = React.useState(false);
 
 
-  const [update, setUpdate] = React.useState({ fullName: ' ', email: ' ', password: ' ', phone: ' ' })
+ 
 
   const changeName = (e) => {
       setUpdate({...update,fullName:e.target.value})
+      console.log(e)
   }
   const changeEmail = (e) => {
       setUpdate({...update,email:e.target.value})
@@ -89,13 +92,13 @@ function Signup() {
                 onChange={changeName} error={nameError} helperText={nameText} />
 
                  <TextField style={{ backgroundColor: 'white' }} className="sign-email" type='text' id="outlined-email" label="Email Id" variant="outlined"
-                onChange={changeName} error={emailError} helperText={emailText} />
+                onChange={changeEmail} error={emailError} helperText={emailText} />
 
                  <TextField style={{ backgroundColor: 'white' }} className="sign-pass" type='text' id="outlined-email" label="Password" variant="outlined"
-                onChange={changeName} error={passwordError} helperText={passwordText} />
+                onChange={changePassword} error={passwordError} helperText={passwordText} />
 
                 <TextField style={{ backgroundColor: 'white' }} className="sign-pass" type='text' id="outlined-email" label="Number" variant="outlined"
-                onChange={changeName} error={numberError} helperText={numberText} />
+                onChange={changeNumber} error={numberError} helperText={numberText} />
                 
 
            

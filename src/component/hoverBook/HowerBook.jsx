@@ -2,9 +2,22 @@ import React from 'react'
 import book from '../../assets/book.png'
 import '../hoverBook/HowerBook.scss'
 import { Button } from '@material-ui/core'
+import {addToCart} from '../../services/UserService'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
-function HowerBook(props) {
+function HowerBook(props) 
+{
+const [addBookToCart, setAddBookToCart] = React.useState([]);
+
+const bookId = (_id) => {
+    console.log(_id)
+    addToCart(props.item.item._id).then((res) => {
+        console.log(res)
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+
     return (
         <div className="hower-container">
             <div className='left-container'>
@@ -13,7 +26,7 @@ function HowerBook(props) {
                     <img id="hower-img" src={book}></img>
                 </div>
                 <div className='btn-container'>
-                    <Button className='bag-btn' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained">ADD TO BAG</Button>
+                    <Button className='bag-btn' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained"  onClick={() => bookId(props.item.item._id)}>ADD TO BAG</Button>
                     <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"> <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
                 </div>
 

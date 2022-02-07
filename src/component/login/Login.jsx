@@ -3,8 +3,10 @@ import '../login/Login.scss'
 import { Button ,TextField } from '@material-ui/core';
 import {uLogin} from '../../services/UserService'
 //import { uLogin } from '../../services/userSevice';
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 function Login() {
+     let history =new useHistory();
+
   const email = /priyachouhan1019@gmail.com/;
   const password = /Priya@1019/;
 
@@ -43,6 +45,11 @@ function Login() {
 
     uLogin(update).then((res)=>{
         console.log(res)
+
+        localStorage.setItem('token', res.data.result.accessToken)
+        console.log(localStorage.setItem('token', res.data.result.accessToken))
+
+        history.push('/dashboard')
         
     }).catch((err)=>{
         console.log(err)
@@ -60,7 +67,7 @@ function Login() {
              <TextField style={{ backgroundColor: 'white' }} className="pass-npt" type='text' id="outlined-email" label="Password" variant="outlined"
                 onChange={changePassword} error={passwordError} helperText={passwordText} />
 
-           <Link to='/dashboard'> <button className='login-btn' style={{ backgroundColor: '#A03037'}}  onClick={submit}> Login </button></Link>
+            <button className='login-btn' style={{ backgroundColor: '#A03037'}}  onClick={submit}> Login </button>
             <p className='strick'>OR</p>
 
             <div className='buttom-btn'>
