@@ -23,7 +23,7 @@ function Books() {
         getBookDetails();
     }, [])
 
-    const openImage = (item) => {
+    const openDispalyImage = (item) => {
         setViewBook({...viewBook,item})
         setSelect(!select)
     }
@@ -36,7 +36,7 @@ function Books() {
                 books.map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
-                        <div className="book-container" onClick={()=>openImage(item)}>
+                        <div className="book-container" onClick={()=>openDispalyImage(item)}>
                             <img className="image" src={book}></img>
                         </div>
                         <div className="text-containt">

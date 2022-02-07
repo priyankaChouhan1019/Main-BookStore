@@ -6,16 +6,22 @@ import Home from './pages/homePage/Home';
 import Dashboard from './pages/dashboard/Dashboard';
 import Books from './component/books/Books';
 import HowerBook from './component/hoverBook/HowerBook';
+import {
+  BrowserRouter, Route, Switch
+} from 'react-router-dom';
+
 function App() {
   return (
-    <div className="App">
-     {/* <Login/> */}
-     {/* <Signup /> */}
-     {/* <Home /> */}
-     {/* <Books/> */}
-     <Dashboard/>
-     {/* <HowerBook/> */}
-    </div>
+
+    <BrowserRouter>
+
+        <Switch>
+        
+        <Route path='/' component={Home} exact/>
+        <Route path='/dashboard' component={Dashboard}/>
+        </Switch>
+    </BrowserRouter>
+   
   );
 }
 export default App;

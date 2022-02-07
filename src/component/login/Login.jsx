@@ -3,6 +3,7 @@ import '../login/Login.scss'
 import { Button ,TextField } from '@material-ui/core';
 import {uLogin} from '../../services/UserService'
 //import { uLogin } from '../../services/userSevice';
+import { Link } from 'react-router-dom';
 function Login() {
   const email = /priyachouhan1019@gmail.com/;
   const password = /Priya@1019/;
@@ -57,18 +58,16 @@ function Login() {
 
            
              <TextField style={{ backgroundColor: 'white' }} className="pass-npt" type='text' id="outlined-email" label="Password" variant="outlined"
-                onChange={changeEmail} error={passwordError} helperText={passwordText} />
+                onChange={changePassword} error={passwordError} helperText={passwordText} />
 
-            <button className='login-btn' style={{ backgroundColor: '#A03037'}}  onClick={submit}> Login </button>
+           <Link to='/dashboard'> <button className='login-btn' style={{ backgroundColor: '#A03037'}}  onClick={submit}> Login </button></Link>
             <p className='strick'>OR</p>
 
             <div className='buttom-btn'>
                 <Button className='fb-btn' style={{ backgroundColor: '#4266B2' }} variant="contained">Facebook</Button>
                 <Button className='google-btn' variant="contained">Google</Button>
             </div>
-
-        
-      
+ 
     </div>
   )
 }
