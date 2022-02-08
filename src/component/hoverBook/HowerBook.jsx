@@ -2,21 +2,80 @@ import React from 'react'
 import book from '../../assets/book.png'
 import '../hoverBook/HowerBook.scss'
 import { Button } from '@material-ui/core'
-import {addToCart} from '../../services/UserService'
+import { addToCart } from '../../services/UserService'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
-function HowerBook(props) 
-{
-const [addBookToCart, setAddBookToCart] = React.useState([]);
+import { itemsQuantity,getCart} from '../../services/UserService';
 
-const bookId = (_id) => {
-    console.log(_id)
-    addToCart(props.item.item._id).then((res) => {
-        console.log(res)
-    }).catch((err) => {
-        console.log(err)
-    })
-}
+function HowerBook(props) {
+    const [addBookToCart, setAddBookToCart] = React.useState([]);
+    // const [quantity, setQuantity] = React.useState([]);
+    const [filterArray, setFilterArray] = React.useState([]);
+    const [cardId, setCardId] = React.useState([]);
+    const [quantity, setQuantity] = React.useState(0);
+
+    const bookId = (_id) => {
+        console.log(_id)
+        addToCart(props.item.item._id).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+    const displayCartItem = () => {
+        getCart()
+            .then((res) => {
+                console.log(res)
+                let filterData = res.data.result.filter((cart) => {
+                    if (props.item.item._id === cart.product_id._id) {
+                        setQuantity(cart.quantityToBuy)
+                        setCardId(cart._id)
+                        return cart;
+                    }
+                })
+                setFilterArray(filterData);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+    }
+
+  
+
+    const itemIncrement = () => {
+        let data = {
+            "quantityToBuy": quantity + 1,
+          };
+        
+          itemsQuantity(cardId,data)
+            .then((res) => {
+                console.log(res)
+                displayCartItem();
+                console.log("Show Cart + Item")
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
+
+    const itemDecrement = () => {
+        let data = {
+            "quantityToBuy": quantity - 1,
+          };
+        
+          itemsQuantity(cardId,data)
+            .then((res) => {
+                console.log(res)
+                displayCartItem();
+                console.log("Show Cart - Item")
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
+
+    React.useEffect(() => {
+        displayCartItem();
+    }, [quantity]);
 
     return (
         <div className="hower-container">
@@ -26,7 +85,29 @@ const bookId = (_id) => {
                     <img id="hower-img" src={book}></img>
                 </div>
                 <div className='btn-container'>
-                    <Button className='bag-btn' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained"  onClick={() => bookId(props.item.item._id)}>ADD TO BAG</Button>
+                    {
+                        filterArray.length === 0 ? (
+                            <Button className='bag-btn' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained"
+                                onClick={() => bookId(props.item.item._id)}>
+                                ADD TO BAG
+                            </Button>
+                        )
+                            :
+                            (
+                                <div className='cont-btn'>
+                                    <Button className='minus' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained"
+                                    onClick={itemDecrement} id={props.item.item._id}>
+                                        -
+                                    </Button>
+                                    <span>{quantity}</span>
+                                    <Button className='plus' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained"
+                                    onClick={itemIncrement} id={props.item.item._id}>
+                                        +
+                                    </Button>
+                                </div>
+                            )
+                    }
+
                     <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"> <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
                 </div>
 
@@ -47,13 +128,13 @@ const bookId = (_id) => {
                         </div>
                     </div>
                 </div>
-                <hr id="line"/>
+                <hr id="line" />
                 <div className='second-div'>
                     <span id="book-detial">Book Detail</span>
                     <p id="lorem">{props.item.item.description}</p>
-               
+
                 </div>
-                <hr id="line"/>
+                <hr id="line" />
                 <div className="third-div">
                     <span id="feedback"> Customer Feedback</span>
                 </div>
@@ -61,11 +142,11 @@ const bookId = (_id) => {
                 <div className="rating-div">
                     <span id='rating'>overall rating</span>
                     <div className='star'>
-                        <StarBorderPurple500OutlinedIcon/>
-                        <StarBorderPurple500OutlinedIcon/>
-                        <StarBorderPurple500OutlinedIcon/>
-                        <StarBorderPurple500OutlinedIcon/>
-                        <StarBorderPurple500OutlinedIcon/>
+                        <StarBorderPurple500OutlinedIcon />
+                        <StarBorderPurple500OutlinedIcon />
+                        <StarBorderPurple500OutlinedIcon />
+                        <StarBorderPurple500OutlinedIcon />
+                        <StarBorderPurple500OutlinedIcon />
                     </div>
                     <input className="review" type="text" placeholder='write your review'></input>
                     <Button className='sumit-btn' style={{ backgroundColor: '#3371B5', color: 'white' }} variant="contained">submit</Button>

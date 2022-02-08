@@ -28,3 +28,13 @@ export const addToCart = async(data)=>{
     let response = await axios.post(`https://bookstore.incubation.bridgelabz.com/bookstore_user/add_cart_item/${data}`,data,headerConfig)
     return response;
 }
+
+export const getCart = async()=>{
+    let response = await axios.get("https://bookstore.incubation.bridgelabz.com/bookstore_user/get_cart_items",headerConfig)
+    return response;
+}
+
+export const itemsQuantity = async (qdata,data) =>{
+    let response = await axios.put(`https://bookstore.incubation.bridgelabz.com/bookstore_user/cart_item_quantity/${qdata}`,data,headerConfig)
+    return response;
+  }
