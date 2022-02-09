@@ -41,6 +41,7 @@
 				}
 			}
 			.wishlistBookInfoContainer{
+				 width: 85%;
 				.wishlistBookName{
 					text-align: left;
 					font: normal normal normal 16px Roboto;
@@ -71,10 +72,12 @@
 						color: #9D9D9D;
 
 					}
-				}
-
+				}	
+			}
 			
-				
+			.wl-delete-btn{
+				background-color: lightsalmon;
+				height: 40%;
 			}
 			
 		}

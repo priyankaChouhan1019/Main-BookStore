@@ -38,13 +38,13 @@ function WishList(props) {
                     <span className='w-list'>My WishList</span>
                 </div>
                 <div className='wishlist-headig'>
-                    My WishList (02)
+                    My WishList ({wishList.length})
                 </div>
                 {wishList.map((item) => (
                 <div className='wishlist-bkdetial-container'>
               
                     
-                    <div className='wl-image-container'>
+                    <div key={item._id} className='wl-image-container'>
                         <img className='wishlist-img' src={book3}></img>
                     </div>
                     <div className='wishlistBookInfoContainer'>
@@ -63,9 +63,13 @@ function WishList(props) {
                             </div>
                         </div>
                     </div>
-                
+                    <div className='wl-delete-btn'>
+                <DeleteOutlineOutlinedIcon/>
                 </div>
+                </div>
+                
                 ))}
+                
             </div>
 
 
