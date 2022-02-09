@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core'
 import { addToCart } from '../../services/UserService'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
-import { itemsQuantity,getCart} from '../../services/UserService';
+import { itemsQuantity,getCart ,add_wish_list,get_wish_list} from '../../services/UserService';
 
 function HowerBook(props) {
     const [addBookToCart, setAddBookToCart] = React.useState([]);
@@ -13,6 +13,7 @@ function HowerBook(props) {
     const [filterArray, setFilterArray] = React.useState([]);
     const [cardId, setCardId] = React.useState([]);
     const [quantity, setQuantity] = React.useState(0);
+    const [getWishlistId, setGetWishlistId] =React.useState([]);
 
     const bookId = (_id) => {
         console.log(_id)
@@ -22,6 +23,19 @@ function HowerBook(props) {
             console.log(err)
         })
     }
+
+    const addToWishlist =(_id)=>{
+        console.log(_id)
+        add_wish_list(props.item.item._id).then((res) => {
+            console.log(res)
+            getWishlistItems();
+        }).catch((err) => {
+            console.log(err)
+        })
+
+    }
+
+
     const displayCartItem = () => {
         getCart()
             .then((res) => {
@@ -38,6 +52,24 @@ function HowerBook(props) {
             .catch((err) => {
                 console.log(err)
             })
+
+    }
+
+    const getWishlistItems =()=>{
+        get_wish_list()
+        .then((res)=>{
+            console.log(res)
+            let filterWishListData=res.data.result.filter((wishCart)=>{
+                if(props.item.item._id === wishCart.product_id._id){
+                    console.log(wishCart.product_id._id)
+                    return wishCart;
+                }
+            })
+            setGetWishlistId(filterWishListData);
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 
     }
 
@@ -75,6 +107,8 @@ function HowerBook(props) {
 
     React.useEffect(() => {
         displayCartItem();
+        getWishlistItems();
+
     }, [quantity]);
 
     return (
@@ -108,7 +142,8 @@ function HowerBook(props) {
                             )
                     }
 
-                    <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"> <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
+                    <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"
+                    onClick={()=>addToWishlist(props.item.item._id)}> <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
                 </div>
 
             </div>

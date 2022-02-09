@@ -6,6 +6,7 @@ import Home from './pages/homePage/Home';
 import Dashboard from './pages/dashboard/Dashboard';
 import Books from './component/books/Books';
 import HowerBook from './component/hoverBook/HowerBook';
+import WishList from './component/wishList/WishList';
 import {
   BrowserRouter, Route, Switch
 } from 'react-router-dom';
@@ -19,6 +20,7 @@ function App() {
         
         <Route path='/' component={Home} exact/>
         <Route path='/dashboard' component={Dashboard}/>
+        <Route path='/wishList' component={WishList}/>
         </Switch>
     </BrowserRouter>
    
