@@ -4,7 +4,7 @@ import HeadBar from '../headbar/HeadBar'
 import book3 from '../../assets/book3.png'
 import UserService from '../../services/UserService'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import {get_wish_list} from '../../services/UserService';
+import {get_wish_list,delete_wish_list} from '../../services/UserService';
 
 function WishList(props) {
     const [wishList, setWishList] = React.useState([]);
@@ -20,6 +20,17 @@ function WishList(props) {
             console.log(err)
         })
 
+    }
+
+    const deleteBook =(id)=>{
+        delete_wish_list(id)
+        .then((res)=>{
+            console.log(res)
+            setQuantity(!quantity) 
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
 
     React.useEffect(() => {
@@ -63,7 +74,8 @@ function WishList(props) {
                             </div>
                         </div>
                     </div>
-                    <div className='wl-delete-btn'>
+                    <div className='wl-delete-btn'
+                    onClick={()=>deleteBook(item.product_id._id)}>
                 <DeleteOutlineOutlinedIcon/>
                 </div>
                 </div>

@@ -49,7 +49,7 @@ export const itemsQuantity = async (qdata,data) =>{
     return response;
 }
 
-export const delete_wish_list =async (data)=>{
-    let response = await axios.delete(`https://bookstore.incubation.bridgelabz.com/bookstore_user/remove_wishlist_item/${data}`,data,headerConfig)
+export const delete_wish_list =async (id)=>{
+    let response = await axios.delete(`https://bookstore.incubation.bridgelabz.com/bookstore_user/remove_wishlist_item/${id}`,headerConfig)
     return response;
 }
