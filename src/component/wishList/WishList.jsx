@@ -5,10 +5,16 @@ import book3 from '../../assets/book3.png'
 import UserService from '../../services/UserService'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import {get_wish_list,delete_wish_list} from '../../services/UserService';
+import { useHistory } from "react-router-dom";
 
 function WishList(props) {
     const [wishList, setWishList] = React.useState([]);
     const [quantity, setQuantity]= React.useState(false);
+
+    let history = useHistory();
+    const openhome =()=>{
+        history.push('/dashboard');
+    }
 
     const getWishlistItems =()=>{
         get_wish_list()
@@ -45,7 +51,7 @@ function WishList(props) {
             <div className='wishlist-inner-container'>
 
                 <div className='wishlist-header'>
-                    <span className='w-home'>Home/</span>
+                    <span className='w-home' onClick={openhome}>Home/</span>
                     <span className='w-list'>My WishList</span>
                 </div>
                 <div className='wishlist-headig'>

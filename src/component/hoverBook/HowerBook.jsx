@@ -8,6 +8,7 @@ import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurpl
 import { itemsQuantity,getCart ,add_wish_list,get_wish_list} from '../../services/UserService';
 import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
 import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
+import { useHistory } from "react-router-dom";
 
 function HowerBook(props) {
     const [addBookToCart, setAddBookToCart] = React.useState([]);
@@ -16,6 +17,7 @@ function HowerBook(props) {
     const [cardId, setCardId] = React.useState([]);
     const [quantity, setQuantity] = React.useState(0);
     const [getWishlistId, setGetWishlistId] =React.useState([]);
+    let history = useHistory();
 
     const bookId = (_id) => {
         console.log(_id)
@@ -35,6 +37,9 @@ function HowerBook(props) {
             console.log(err)
         })
 
+    }
+    const openWishlist =()=>{
+        history.push('/wishList');
     }
 
 
@@ -141,7 +146,7 @@ function HowerBook(props) {
                     }
 
                     <Button className='wish-btn' style={{ backgroundColor: '#333333', color: 'white' }} variant="contained"
-                    onClick={()=>addToWishlist(props.item.item._id)}> <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
+                    onClick={()=>addToWishlist(props.item.item._id)} onClick={openWishlist}> <FavoriteBorderOutlinedIcon /> WISHLIST</Button>
                 </div>
 
             </div>

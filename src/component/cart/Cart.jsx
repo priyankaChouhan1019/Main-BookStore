@@ -8,14 +8,20 @@ import CustomerDetial from '../customerDetial/CustomerDetial';
 import LocationOnTwoToneIcon from '@mui/icons-material/LocationOnTwoTone';
 import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
 import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
+import { useHistory } from "react-router-dom";
 
 
 function Cart() {
+
     const [filterArray, setFilterArray] = React.useState([]);
     const [cardIdDetails, setCartIdDetails] = React.useState([]);
     const [openAddress, setOpenAddress] = React.useState(false);
     const [openOrderSummery, setOpenOrderSummery] = React.useState(false);
     const [quantity, setQuantity] = React.useState([filterArray.quantityToBuy]);
+    let history = useHistory();
+    const openDashboard =()=>{
+        history.push('/dashboard');
+    }
 
     const bookDecrementItem = (id) => {
         console.log(id)
@@ -138,7 +144,7 @@ function Cart() {
     <div className='cart-mainContainer'>
             <HeadBar />
             <div className='homeLine'>
-                 <span className='c-home'>Home/</span>
+                 <span className='c-home' onClick={openDashboard}>Home/</span>
                  <span className='c-list'>My cart</span>
                 </div>
             <div className='cart-container'>
