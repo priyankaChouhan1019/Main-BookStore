@@ -25,6 +25,19 @@
             margin: 4vh 12vw 0vh 8vw; 
             .cont-btn{
                 display: flex;
+                width: 50%;
+                justify-content: space-around;
+                align-items: center;
+                color: #D1D1D1;
+            }
+            .howerCount{
+                border: 1px solid #D1D1D1;
+                width: 40px;
+                display: flex;
+                justify-content: center;
+                border-radius: 6px;
+                color: #333232;
+
             }
           
         }

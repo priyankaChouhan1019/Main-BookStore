@@ -33,6 +33,7 @@
 		.wishlist-bkdetial-container{
 			border: 1px solid #E4E4E4;
 			display: flex;
+			
 			.wl-image-container{
 				.wishlist-img{
 					width: 80px;
@@ -42,6 +43,7 @@
 			}
 			.wishlistBookInfoContainer{
 				 width: 85%;
+				 margin-top: 20px;
 				.wishlistBookName{
 					text-align: left;
 					font: normal normal normal 16px Roboto;
@@ -74,9 +76,8 @@
 					}
 				}	
 			}
-			
+
 			.wl-delete-btn{
-				background-color: lightsalmon;
 				height: 40%;
 			}
 			

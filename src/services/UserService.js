@@ -53,3 +53,13 @@ export const delete_wish_list =async (id)=>{
     let response = await axios.delete(`https://bookstore.incubation.bridgelabz.com/bookstore_user/remove_wishlist_item/${id}`,headerConfig)
     return response;
 }
+
+export const removeCartItem =async (id)=>{
+    let response = await axios.delete(`https://bookstore.incubation.bridgelabz.com/bookstore_user/remove_cart_item/${id}`,headerConfig)
+    return response;
+}
+
+export const editCustomerDetial =async (data)=>{
+    let response = await axios.put(`https://bookstore.incubation.bridgelabz.com/bookstore_user/edit_user`,data,headerConfig)
+    return response;
+}

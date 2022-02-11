@@ -6,6 +6,8 @@ import { addToCart } from '../../services/UserService'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import StarBorderPurple500OutlinedIcon from '@mui/icons-material/StarBorderPurple500Outlined';
 import { itemsQuantity,getCart ,add_wish_list,get_wish_list} from '../../services/UserService';
+import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
+import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
 
 function HowerBook(props) {
     const [addBookToCart, setAddBookToCart] = React.useState([]);
@@ -129,15 +131,11 @@ function HowerBook(props) {
                             :
                             (
                                 <div className='cont-btn'>
-                                    <Button className='minus' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained"
-                                    onClick={itemDecrement} id={props.item.item._id}>
-                                        -
-                                    </Button>
-                                    <span>{quantity}</span>
-                                    <Button className='plus' style={{ backgroundColor: '#A03037', color: 'white' }} variant="contained"
-                                    onClick={itemIncrement} id={props.item.item._id}>
-                                        +
-                                    </Button>
+                                  
+                                    <RemoveCircleOutlineTwoToneIcon className='minus' onClick={itemDecrement} id={props.item.item._id} />
+                                    <span className='howerCount'>{quantity}</span>
+                                   
+                                    < AddCircleOutlineTwoToneIcon className='plus' onClick={itemIncrement} id={props.item.item._id} />
                                 </div>
                             )
                     }

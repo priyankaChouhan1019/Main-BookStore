@@ -66,7 +66,7 @@ function WishList(props) {
                             by {item.product_id.author}
                         </div>
                         <div className='wishlistBookPriceContainer'>
-                            <div className='wishlistBookNewPrice'>
+                            <div className='wishlistBookNewPrice'>  
                                 Rs. {item.product_id.discountPrice}
                             </div>
                             <div className='wishlistBookOldPrice'>

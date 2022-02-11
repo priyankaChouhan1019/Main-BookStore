@@ -25,10 +25,14 @@
     .book-container{
         background-color:#F5F5F5;
         height: 120px;
+       
 
         .image{
             height: 100px;
-            margin: 2vh 0vw 2vh 0vw;   
+            margin: 0vh 0vw 2vh 0vw; 
+           padding: 10px 60px;
+            display: flex;
+            justify-content: center;  
         }
 
     }

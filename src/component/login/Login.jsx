@@ -7,8 +7,8 @@ import { Link,useHistory } from 'react-router-dom';
 function Login() {
      let history =new useHistory();
 
-  const email = /priyachouhan1019@gmail.com/;
-  const password = /Priya@1019/;
+  const email = /priyanka1019.chouhan@gmail.com/;
+  const password = /Priya@1234/;
 
   const [update, setUpdate] = React.useState({ email: ' ', password: ' '})
 
