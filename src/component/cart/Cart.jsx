@@ -158,9 +158,10 @@ function Cart() {
                             </div>
                         </location>
                     </div>
-                    <div className='bookdetial-div'>
-                        {
+                    {
                             filterArray.filter(item => item.product_id !== null).map((item, index) => (
+                    <div className='bookdetial-div'>
+                  
                         <div className='bookdetial-container'>
                             <div className='cart-imageContainer'>
                                 <img className='cart-img' src={book}></img>
@@ -197,8 +198,9 @@ function Cart() {
                             </div>
 
                         </div>
-                            ))}
+                           
                     </div>
+                    ))}
                     {filterArray.length !== 0 ? (
                         <Button className='submit' variant="contained" onClick={orderPlaced} >Place Order</Button>
                     ) : null
