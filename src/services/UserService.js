@@ -63,3 +63,9 @@ export const editCustomerDetial =async (data)=>{
     let response = await axios.put(`https://bookstore.incubation.bridgelabz.com/bookstore_user/edit_user`,data,headerConfig)
     return response;
 }
+
+export const orderDetails =async (data)=>{
+    let response = await axios.post(`https://bookstore.incubation.bridgelabz.com/bookstore_user/add/order`,data,headerConfig)
+    return response;
+}
+

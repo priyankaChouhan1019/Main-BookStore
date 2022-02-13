@@ -12,8 +12,8 @@
 }
 
 @mixin innercontainerSize {
-    margin: auto;
-		width: 85%;
+    margin: 0vh 8vw;
+		width: 65%;
 		padding: 10px;
 }
 .cart-mainContainer{
@@ -144,7 +144,7 @@
     }
         .submit {
             background-color: #3371b5;
-            margin: 0vh 0vw 2vh 70vw;
+            margin: 0vh 0vw 2vh 50vw;
             width: 150px;
         }
     }
@@ -158,6 +158,18 @@
         @include addressOrder();
         .summary {
             @include detailsSummary();
+        }
+    }
+
+   
+    
+}
+.order-smr-Container    {
+    background-color: rebeccapurple;
+    .summer-img{
+        display: flex;
+        .ImgDiv{
+
         }
     }
 }

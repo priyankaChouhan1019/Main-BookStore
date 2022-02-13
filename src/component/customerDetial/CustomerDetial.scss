@@ -37,7 +37,7 @@
   .inputfields-container {
     width: 70%;
     margin-left: 45px;
-    height: 307px;
+    height: 290px;
     
   }
   
@@ -45,7 +45,7 @@
   .row-2,
   .row-3,
   .row-4 {
-    width: 65%;
+    width: 82%;
     height: 62px;
     margin-top: 10px;
     display: flex;
@@ -71,10 +71,9 @@
     width: 95%;
     display: flex;
     justify-content: flex-end;
-  }
-  
+      
   .continue-button {
-    width: 150px;
+    width: 140px;
     height: 35px;
     background-color: #3371b5;
     color: white;
@@ -82,7 +81,11 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
-  }
+ 
+  
+  }}
+
+
 
   .RadioButtons{
     padding-left: 30px;

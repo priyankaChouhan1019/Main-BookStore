@@ -18,6 +18,7 @@ function CustomerDetial(props) {
     const [city, setCity] = React.useState("");
     const [state, setState] = React.useState("");
     const [type, setType] = React.useState("");
+    const [openOrderSummery, setOpenOrderSummery] = React.useState(false);
 
     const [addressObj, setAddressObj] = React.useState({
 
@@ -60,6 +61,10 @@ function CustomerDetial(props) {
                 console.warn(err);
             });
     };
+
+    const continueOrder = () => {
+        setOpenOrderSummery(!openOrderSummery)
+    }
 
 
     React.useEffect(() => {
