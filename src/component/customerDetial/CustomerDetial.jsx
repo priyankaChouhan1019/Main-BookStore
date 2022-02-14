@@ -55,8 +55,8 @@ function CustomerDetial(props) {
     const updateCustomerdetails = () => {
         editCustomerDetial(addressObj)
             .then((response) => {
-                console.log("updated address ", response);
-                
+                console.log(response);
+                props.continueOrder(true)
                 // setShowButton(false);
             })
             .catch((err) => {
@@ -169,7 +169,7 @@ function CustomerDetial(props) {
 
             <div className="continue-button-container">
                 <div className="continue-button" onClick={updateCustomerdetails}>
-                    <p onClick={() => props.continueOrder(true)}>CONTINUE</p><br></br>
+                    <p>CONTINUE</p><br></br>
                 </div>
             </div>
 
