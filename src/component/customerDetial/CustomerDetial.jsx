@@ -171,14 +171,14 @@ function CustomerDetial(props) {
                 </div>
             </div>
 
-            <div className='orderr'>
+            {/* <div className='orderr'>
                 <div className='summaryy'>
                     Order summary
                 </div>
             </div>
             <div>
                 <Footer />
-            </div>
+            </div> */}
         </div>
     )
 }

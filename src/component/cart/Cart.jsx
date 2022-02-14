@@ -4,7 +4,7 @@ import book from '../../assets/book.png'
 import { Button } from '@material-ui/core'
 import book3 from '../../assets/book3.png'
 import '../cart/Cart.scss'
-import {removeCartItem,itemsQuantity,getCart,orderDetails} from '../../services/UserService'
+import { removeCartItem, itemsQuantity, getCart, orderDetails } from '../../services/UserService'
 import CustomerDetial from '../customerDetial/CustomerDetial';
 import LocationOnTwoToneIcon from '@mui/icons-material/LocationOnTwoTone';
 import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
@@ -20,8 +20,12 @@ function Cart() {
     const [openOrderSummery, setOpenOrderSummery] = React.useState(false);
     const [quantity, setQuantity] = React.useState([filterArray.quantityToBuy]);
     let history = useHistory();
-    const openDashboard =()=>{
+    const openDashboard = () => {
         history.push('/dashboard');
+    }
+
+    const openOrderplaced = () => {
+        history.push('/orderDone')
     }
 
     const bookDecrementItem = (id) => {
@@ -41,7 +45,7 @@ function Cart() {
             "quantityToBuy": quantity - 1,
         };
 
-       itemsQuantity(cardIdDetails, data)
+        itemsQuantity(cardIdDetails, data)
             .then((res) => {
                 console.log(res)
                 // console.log(res)
@@ -70,7 +74,7 @@ function Cart() {
             "quantityToBuy": quantity + 1,
         };
 
-       itemsQuantity(cardIdDetails, data)
+        itemsQuantity(cardIdDetails, data)
             .then((res) => {
                 console.log(res)
                 // console.log(res)
@@ -112,7 +116,7 @@ function Cart() {
         })
         setFilterArray(filterCartData)
         console.log(quantity)
-        
+
         let data = {
             "quantityToBuy": quantity * 0,
         };
@@ -123,7 +127,7 @@ function Cart() {
                 // console.log(res)
                 console.log(data)
                 showCartItem();
-                
+
             }).catch((err) => {
                 console.log(err)
             })
@@ -137,7 +141,7 @@ function Cart() {
         setOpenOrderSummery(!openOrderSummery)
     }
 
-   
+
     const checkoutOrder = () => {
 
 
@@ -171,18 +175,18 @@ function Cart() {
     React.useEffect(() => {
         showCartItem();
     }, []);
-  return (
-    <div className='cart-mainContainer'>
+    return (
+        <div className='cart-mainContainer'>
             <HeadBar />
             <div className='homeLine'>
-                 <span className='c-home' onClick={openDashboard}>Home/</span>
-                 <span className='c-list'>My cart</span>
-                </div>
+                <span className='c-home' onClick={openDashboard}>Home/</span>
+                <span className='c-list'>My cart</span>
+            </div>
             <div className='cart-container'>
-               
+
                 <div className='bookDetailsBox'>
                     <div className='firstLine'>
-                        <span className='cart'>My cart ({filterArray.length -1}) </span>
+                        <span className='cart'>My cart ({filterArray.length - 1}) </span>
                         <location className='location'>
                             <div className='bridgeLabz'>
                                 <LocationOnTwoToneIcon /> BridgeLabz Solutions LLP, No...
@@ -190,48 +194,48 @@ function Cart() {
                         </location>
                     </div>
                     {
-                            filterArray.filter(item => item.product_id !== null).map((item, index) => (
-                    <div className='bookdetial-div'>
-                  
-                        <div className='bookdetial-container'>
-                            <div className='cart-imageContainer'>
-                                <img className='cart-img' src={book}></img>
-                            </div>
-                      
-                            <div>
+                        filterArray.filter(item => item.product_id !== null).map((item, index) => (
+                            <div className='bookdetial-div'>
 
-                                <div className='cartBookDetails'>
-                                    <span className='cartTitle'>
-                                        {item.product_id.bookName}
-                                    </span> <br></br>
-                                    <span className='cartAuthor'>by 
-                                        {item.product_id.author}
-                                    </span> <br></br>
-                                    <div className='cart-price'> 
-                                    <span className='cartNewPrice'>
-                                        {item.product_id.price}
-                                    </span><br></br>
-                                    <span className='cartOldPrice'>rs2000</span> <br></br>
+                                <div className='bookdetial-container'>
+                                    <div className='cart-imageContainer'>
+                                        <img className='cart-img' src={book}></img>
                                     </div>
-                                    <div className='buttonFour'>
 
-                                    <Button className='minus' onClick={() => bookDecrementItem(item)} 
-                                    > <RemoveCircleOutlineTwoToneIcon /> </Button>
-                                    <Button className='cartcount'> {item.quantityToBuy} </Button>
-                                    <Button className='plus' onClick={() => bookIncrementItem(item)}
-                                    > <AddCircleOutlineTwoToneIcon /> </Button>
-                                    <Button className='remove' onClick={() => deleteCartItem(item)}
-                                    > Remove </Button>
+                                    <div>
+
+                                        <div className='cartBookDetails'>
+                                            <span className='cartTitle'>
+                                                {item.product_id.bookName}
+                                            </span> <br></br>
+                                            <span className='cartAuthor'>by
+                                                {item.product_id.author}
+                                            </span> <br></br>
+                                            <div className='cart-price'>
+                                                <span className='cartNewPrice'>
+                                                    {item.product_id.price}
+                                                </span><br></br>
+                                                <span className='cartOldPrice'>rs2000</span> <br></br>
+                                            </div>
+                                            <div className='buttonFour'>
+
+                                                <Button className='minus' onClick={() => bookDecrementItem(item)}
+                                                > <RemoveCircleOutlineTwoToneIcon /> </Button>
+                                                <Button className='cartcount'> {item.quantityToBuy} </Button>
+                                                <Button className='plus' onClick={() => bookIncrementItem(item)}
+                                                > <AddCircleOutlineTwoToneIcon /> </Button>
+                                                <Button className='remove' onClick={() => deleteCartItem(item)}
+                                                > Remove </Button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
 
                                 </div>
-                                </div>
-                                
+
                             </div>
-
-                        </div>
-                           
-                    </div>
-                    ))}
+                        ))}
                     {filterArray.length !== 0 ? (
                         <Button className='submit' variant="contained" onClick={orderPlaced} >Place Order</Button>
                     ) : null
@@ -256,27 +260,39 @@ function Cart() {
                     )}
 
 
-                </div>
-                </div>
-              
-                <div className="OrderDetailContainer2">
+             
+     
+            <div className="Ordersummarycontainer">
+                
                     {!openOrderSummery ? (
-                        <h4 >order Summary</h4>
+                         <p className="txt"></p>
+                       
                     ) : (
                         <div className="order-smr-Container">
-                            <p className="txt">Order Summary </p>
+                             {/* <div className='order'> */}
+                             <div className='summary-t'>
+                                    Order summary
+                                {/* </div> */}
+                                </div>
+                            {/* <p className="txt">Order Summary </p> */}
                             {filterArray.filter(item => item.product_id !== null).map((product, index) => (
-                                <div className="summer-img" key={index}>
-                                    <div className="bookImgDiv">
-                                        <img className='theImage' src={book3}></img>
+                                <div className="summery-innr-contain" key={index}>
+                                    <div className="imgDiv">
+                                        <img className='summeryimage' src={book3}></img>
                                     </div>
                                     <div className="order-dtl-container">
                                         <b className='bookName'>{product.product_id.bookName} </b>
                                         <p className='author'>by-{product.product_id.author}</p>
-                                        <span style={{ width: "50px" }}>
-                                            <b className='discountPrice'>Rs. {product.product_id.discountPrice} </b>
+                                        <div className='cart-price'>
+                                                <span className='cartNewPrice'>
+                                                RS {product.product_id.discountPrice}
+                                                </span>
+                                                <span className='cartOldPrice'>Rs{product.product_id.price}</span> 
+                                            </div>
+                                        {/* <span >
+                                            <b className='newPrice'>Rs. {product.product_id.discountPrice} </b>
                                         </span>
-                                        <del style={{ color: "gray" }} className='price'>Rs {product.product_id.price} </del>
+                                        <del style={{ color: "gray" }} className='price'>Rs {product.product_id.price} </del> */}
                                     </div>
                                 </div>
                             ))}
@@ -284,7 +300,9 @@ function Cart() {
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    
                                     onClick={checkoutOrder}
+                                    onClick={openOrderplaced}
                                 >
                                     Checkout
                                 </Button>
@@ -292,11 +310,12 @@ function Cart() {
                         </div>
                     )}
                 </div>
-              
                 </div>
-          
-      
-  )
+                </div>
+        </div>
+
+
+    )
 }
 
 export default Cart
