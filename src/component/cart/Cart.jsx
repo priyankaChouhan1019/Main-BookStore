@@ -19,6 +19,8 @@ function Cart() {
     const [openAddress, setOpenAddress] = React.useState(false);
     const [openOrderSummery, setOpenOrderSummery] = React.useState(false);
     const [quantity, setQuantity] = React.useState([filterArray.quantityToBuy]);
+    const [showButton, setShowButton] = React.useState(true);
+    
     let history = useHistory();
     const openDashboard = () => {
         history.push('/dashboard');
@@ -89,13 +91,7 @@ function Cart() {
         getCart()
             .then((res) => {
                 console.log(res)
-                // let filterData = res.data.result.filter((cart) => {
-                //     if (props.item._id === cart.product_id._id) {
-                //         setQuantity(cart.quantityToBuy)
-                //         setCartIdDetails(cart._id)
-                //         return cart;
-                //     }
-                // })
+             
                 setFilterArray(res.data.result);
             })
             .catch((err) => {
@@ -135,6 +131,7 @@ function Cart() {
 
     const orderPlaced = () => {
         setOpenAddress(!openAddress)
+        setShowButton(false);
     }
 
     const continueOrder = () => {
@@ -186,7 +183,7 @@ function Cart() {
 
                 <div className='bookDetailsBox'>
                     <div className='firstLine'>
-                        <span className='cart'>My cart ({filterArray.length - 1}) </span>
+                        <span className='cart'>My cart ({filterArray.length}) </span>
                         <location className='location'>
                             <div className='bridgeLabz'>
                                 <LocationOnTwoToneIcon /> BridgeLabz Solutions LLP, No...
@@ -236,14 +233,14 @@ function Cart() {
 
                             </div>
                         ))}
-                    {filterArray.length !== 0 ? (
+                    {filterArray.length !== 0  && showButton ? (
                         <Button className='submit' variant="contained" onClick={orderPlaced} >Place Order</Button>
                     ) : null
                     }
                 </div>
 
                 <div className='address'>
-                    {!openAddress ? (
+                   {!openAddress ? (
                         <div>
                             <div className='details'>
                                 Address Details
@@ -269,12 +266,9 @@ function Cart() {
                        
                     ) : (
                         <div className="order-smr-Container">
-                             {/* <div className='order'> */}
                              <div className='summary-t'>
                                     Order summary
-                                {/* </div> */}
                                 </div>
-                            {/* <p className="txt">Order Summary </p> */}
                             {filterArray.filter(item => item.product_id !== null).map((product, index) => (
                                 <div className="summery-innr-contain" key={index}>
                                     <div className="imgDiv">
@@ -289,10 +283,7 @@ function Cart() {
                                                 </span>
                                                 <span className='cartOldPrice'>Rs{product.product_id.price}</span> 
                                             </div>
-                                        {/* <span >
-                                            <b className='newPrice'>Rs. {product.product_id.discountPrice} </b>
-                                        </span>
-                                        <del style={{ color: "gray" }} className='price'>Rs {product.product_id.price} </del> */}
+                                        
                                     </div>
                                 </div>
                             ))}

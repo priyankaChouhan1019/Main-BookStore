@@ -56,6 +56,8 @@ function CustomerDetial(props) {
         editCustomerDetial(addressObj)
             .then((response) => {
                 console.log("updated address ", response);
+                
+                // setShowButton(false);
             })
             .catch((err) => {
                 console.warn(err);
@@ -171,14 +173,6 @@ function CustomerDetial(props) {
                 </div>
             </div>
 
-            {/* <div className='orderr'>
-                <div className='summaryy'>
-                    Order summary
-                </div>
-            </div>
-            <div>
-                <Footer />
-            </div> */}
         </div>
     )
 }
