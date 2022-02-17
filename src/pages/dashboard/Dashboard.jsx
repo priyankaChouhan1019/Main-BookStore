@@ -4,12 +4,11 @@ import { getBooks } from '../../services/UserService'
 import Books from '../../component/books/Books';
 import HeadBar from '../../component/headbar/HeadBar';
 import HowerBook from '../../component/hoverBook/HowerBook';
-
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 function Dashboard() {
   const [bookArray, setBookArray] = React.useState([])
-
-
 
   return (
     <div className="dash-container">
@@ -35,8 +34,18 @@ function Dashboard() {
 
         </div>
       </div>
+      {/* <div className='pagination'>
+      <Stack spacing={2}>
+      <Pagination className='pages' count={10} />
+      <Pagination count={10} color="primary" />
+      <Pagination count={10} color="secondary" />
+      <Pagination count={10} disabled />
+    </Stack>
+      </div> */}
 
-    </div >
+       
+    
+    </div>
   )
 }
 

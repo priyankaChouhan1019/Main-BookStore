@@ -74,7 +74,6 @@ function Login() {
                 <Button className='fb-btn' style={{ backgroundColor: '#4266B2' }} variant="contained">Facebook</Button>
                 <Button className='google-btn' variant="contained">Google</Button>
             </div>
- 
     </div>
   )
 }

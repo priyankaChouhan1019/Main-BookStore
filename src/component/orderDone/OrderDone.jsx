@@ -8,16 +8,16 @@ function OrderDone() {
     <>
     <div>
         <HeadBar />
-      <div className="mainContent">
+      <div className="mainContainer">
         <img className="image" src={orderPlaced} />
         <div>
-          <p className="message">
+          <p className="message-disp">
             Hurray!!! Your order is confirmed! The order id is ( #123456 ).
             Save the order id for further communication.
           </p>
         </div>
-        <div className="table">
-          <table className="order-table">
+        <div className="main-table">
+          <table className="tables">
             <tr>
               <th className="email">Email Us</th>
               <th>Contact Us</th>
