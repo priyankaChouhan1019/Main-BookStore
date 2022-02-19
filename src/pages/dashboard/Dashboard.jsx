@@ -9,10 +9,14 @@ import Stack from '@mui/material/Stack';
 
 function Dashboard() {
   const [bookArray, setBookArray] = React.useState([])
+  const [dataSearch,setDataSearch] = React.useState(' ');
 
+  const listenToHeader = (data) =>{
+    setDataSearch(data)
+}
   return (
     <div className="dash-container">
-      <HeadBar />
+      <HeadBar listenToHeader={listenToHeader}/>
 
       <div className='second-header'>
         <div className='left-title'>
@@ -29,22 +33,11 @@ function Dashboard() {
 </div> 
       <div className='bookList'>
         <div>
-          <Books />
-          {/* <HowerBook /> */}
+          <Books dataSearchOne={dataSearch}/>
+     
 
         </div>
       </div>
-      {/* <div className='pagination'>
-      <Stack spacing={2}>
-      <Pagination className='pages' count={10} />
-      <Pagination count={10} color="primary" />
-      <Pagination count={10} color="secondary" />
-      <Pagination count={10} disabled />
-    </Stack>
-      </div> */}
-
-       
-    
     </div>
   )
 }

@@ -6,10 +6,21 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import bookLogo from '../../assets/bookLogo.png'
 import { useHistory } from "react-router-dom";
 
-function HeadBar() {
+function HeadBar(props) {
   let history = useHistory();
+  
+  const [searchName, setSearchName] = React.useState('')
+
   const openCart =()=>{
       history.push('/cart');
+  }
+
+  const search =(e)=>{
+    
+    setSearchName(e.target.value)
+    props.listenToHeader(e.target.value);
+console.log(e.target.value)
+
   }
   return (
     <div className="head-container">
@@ -20,7 +31,9 @@ function HeadBar() {
             </div>
 
             <div className="search-bar">
-            <input  type='search' className='search' placeholder='Search...'></input>
+            <input  type='search' className='search' placeholder='Search...'
+            value={searchName}
+             onChange={search} />
             
             </div>
 

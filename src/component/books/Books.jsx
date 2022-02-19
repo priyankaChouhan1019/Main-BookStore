@@ -6,7 +6,7 @@ import { getBooks } from '../../services/UserService'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
-function Books() {
+function Books(props) {
 
     const [books, setBooks] = React.useState([])
     const[select,setSelect] =React.useState(false);
@@ -37,6 +37,7 @@ function Books() {
       console.log(value)
         setBookNum(value)
   }
+  console.log(props.dataSearchOne)
   
 
     return (
@@ -45,7 +46,9 @@ function Books() {
             {
                 select ? <HowerBook item={viewBook}/> :
                 bookNum ==1  ? 
-                books.slice(0,10).map((item, index) => (
+                books.slice(0,10)
+                .filter(item => item.bookName.includes(props.dataSearchOne))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
@@ -70,7 +73,9 @@ function Books() {
                     </div>
                 )): 
                 bookNum ==2  ? 
-                books.slice(10,20).map((item, index) => (
+                books.slice(10,20)
+                .filter(item => item.bookName.includes(props.dataSearchOne.toLowerCase()))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
@@ -95,7 +100,9 @@ function Books() {
                     </div>
                 )):
                 bookNum == 3  ? 
-                books.slice(20,30).map((item, index) => (
+                books.slice(20,30)
+                .filter(item => item.bookName.includes(props.dataSearchOne))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
@@ -120,7 +127,9 @@ function Books() {
                     </div>
                 )):
                 bookNum == 4  ? 
-                books.slice(30,40).map((item, index) => (
+                books.slice(30,40)
+                .filter(item => item.bookName.includes(props.dataSearchOne))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
@@ -145,7 +154,9 @@ function Books() {
                     </div>
                 )):
                 bookNum == 5 ? 
-                books.slice(40,50).map((item, index) => (
+                books.slice(40,50)
+                .filter(item => item.bookName.includes(props.dataSearchOne))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
@@ -170,7 +181,9 @@ function Books() {
                     </div>
                 )):
                 bookNum == 6 ? 
-                books.slice(50,60).map((item, index) => (
+                books.slice(50,60)
+                .filter(item => item.bookName.includes(props.dataSearchOne))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
@@ -195,7 +208,9 @@ function Books() {
                     </div>
                 )):
                 bookNum == 7 ? 
-                books.slice(60,70).map((item, index) => (
+                books.slice(60,70)
+                .filter(item => item.bookName.includes(props.dataSearchOne))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
@@ -220,7 +235,9 @@ function Books() {
                     </div>
                 )):
                 bookNum == 8 ? 
-                books.slice(70,80).map((item, index) => (
+                books.slice(70,80)
+                .filter(item => item.bookName.includes(props.dataSearchOne))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
@@ -245,7 +262,9 @@ function Books() {
                     </div>
                 )):
                 bookNum == 9? 
-                books.slice(80,90).map((item, index) => (
+                books.slice(80,90)
+                .filter(item => item.bookName.includes(props.dataSearchOne))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
@@ -270,7 +289,9 @@ function Books() {
                     </div>
                 )):
                 bookNum == 10 ? 
-                books.slice(90,100).map((item, index) => (
+                books.slice(90,100)
+                .filter(item => item.bookName.includes(props.dataSearchOne))
+                .map((item, index) => (
                     <div className="main-card">
                     <div className='card' key={index} className='displayGrid' value={select} >
                         <div className="book-container" onClick={()=>openDispalyImage(item)}>
