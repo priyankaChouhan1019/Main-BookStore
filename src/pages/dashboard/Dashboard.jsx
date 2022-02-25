@@ -10,6 +10,8 @@ import Stack from '@mui/material/Stack';
 function Dashboard() {
   const [bookArray, setBookArray] = React.useState([])
   const [dataSearch,setDataSearch] = React.useState(' ');
+  const [hello,setHello] = React.useState('hello');
+
 
   const listenToHeader = (data) =>{
     setDataSearch(data)
@@ -34,8 +36,6 @@ function Dashboard() {
       <div className='bookList'>
         <div>
           <Books dataSearchOne={dataSearch}/>
-     
-
         </div>
       </div>
     </div>
